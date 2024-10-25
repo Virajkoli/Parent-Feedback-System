@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College and Faculty Feedback Form</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926');
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 bg-opacity-60 min-h-screen flex items-center justify-center">
+
+    <div class="container mx-auto px-4 py-12">
+        <div class="bg-white bg-opacity-90 backdrop-blur-lg p-10 rounded-2xl shadow-lg max-w-3xl mx-auto transform transition duration-300 hover:scale-105">
+            <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">College and Faculty Feedback Form</h1>
+            <form action="/feedback" method="POST">
+                
+                <!-- Personal Information -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-5">Personal Information</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="student_name" class="block text-sm font-medium text-gray-700">Student Name</label>
+                            <input type="text" id="student_name" name="student_name" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
+                        <div>
+                            <label for="roll_no" class="block text-sm font-medium text-gray-700">Student Roll No</label>
+                            <input type="text" id="roll_no" name="roll_no" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
+                    </div>
+                </div>
+                <!-- Parent Information -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-5">Parent Information</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="parent_name" class="block text-sm font-medium text-gray-700">Parent Name</label>
+                            <input type="text" id="parent_name" name="parent_name" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
+                        <div>
+                            <label for="parent_phone" class="block text-sm font-medium text-gray-700">Parent Phone Number</label>
+                            <input type="tel" id="parent_phone" name="parent_phone" pattern="[0-9]{10}" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
+                        <div>
+                            <label for="parent_email" class="block text-sm font-medium text-gray-700">Parent Email</label>
+                            <input type="email" id="parent_email" name="parent_email" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback about the Student -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-5">Feedback on Student</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Are you satisfied with the student's performance?</label>
+                            <select name="student_performance" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Very Satisfied</option>
+                                <option>Satisfied</option>
+                                <option>Neutral</option>
+                                <option>Dissatisfied</option>
+                                <option>Very Dissatisfied</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="student_comments" class="block text-sm font-medium text-gray-700">Additional Comments</label>
+                            <textarea id="student_comments" name="student_comments" rows="3" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback about the Teacher -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-5">Feedback on Teacher</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">How would you rate the teacher's ability to teach?</label>
+                            <select name="teacher_ability" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Excellent</option>
+                                <option>Good</option>
+                                <option>Average</option>
+                                <option>Poor</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="teacher_comments" class="block text-sm font-medium text-gray-700">Additional Comments</label>
+                            <textarea id="teacher_comments" name="teacher_comments" rows="3" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback about the College -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-5">Feedback on College</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">How would you rate the overall facilities of the college?</label>
+                            <select name="college_facilities" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Excellent</option>
+                                <option>Good</option>
+                                <option>Average</option>
+                                <option>Poor</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="college_comments" class="block text-sm font-medium text-gray-700">Additional Comments</label>
+                            <textarea id="college_comments" name="college_comments" rows="3" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-5">Feedback on Various Aspects</h2>
+
+                    <!-- Rating options for Student's attendance -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700">Information regarding Student's attendance *</label>
+                        <div class="mt-2 flex flex-wrap gap-3">
+                            <label><input type="radio" name="attendance" value="Excellent"> Excellent</label>
+                            <label><input type="radio" name="attendance" value="Very Good"> Very Good</label>
+                            <label><input type="radio" name="attendance" value="Good"> Good</label>
+                            <label><input type="radio" name="attendance" value="Average"> Average</label>
+                            <label><input type="radio" name="attendance" value="Poor"> Poor</label>
+                            <label><input type="radio" name="attendance" value="Don't know / Not applicable"> Don't know / Not applicable</label>
+                        </div>
+                    </div>
+
+                    <!-- Rating options for Student's performance -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700">Information regarding Student's performance *</label>
+                        <div class="mt-2 flex flex-wrap gap-3">
+                            <label><input type="radio" name="performance" value="Excellent"> Excellent</label>
+                            <label><input type="radio" name="performance" value="Very Good"> Very Good</label>
+                            <label><input type="radio" name="performance" value="Good"> Good</label>
+                            <label><input type="radio" name="performance" value="Average"> Average</label>
+                            <label><input type="radio" name="performance" value="Poor"> Poor</label>
+                            <label><input type="radio" name="performance" value="Don't know / Not applicable"> Don't know / Not applicable</label>
+                        </div>
+                    </div>
+
+                    <!-- Rating options for interaction with Faculty -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700">Your interaction with Faculty *</label>
+                        <div class="mt-2 flex flex-wrap gap-3">
+                            <label><input type="radio" name="faculty_interaction" value="Excellent"> Excellent</label>
+                            <label><input type="radio" name="faculty_interaction" value="Very Good"> Very Good</label>
+                            <label><input type="radio" name="faculty_interaction" value="Good"> Good</label>
+                            <label><input type="radio" name="faculty_interaction" value="Average"> Average</label>
+                            <label><input type="radio" name="faculty_interaction" value="Poor"> Poor</label>
+                            <label><input type="radio" name="faculty_interaction" value="Don't know / Not applicable"> Don't know / Not applicable</label>
+                        </div>
+                    </div>
+
+                    <!-- Rating options for examination process/system -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700">Examination process/system *</label>
+                        <div class="mt-2 flex flex-wrap gap-3">
+                            <label><input type="radio" name="examination_process" value="Excellent"> Excellent</label>
+                            <label><input type="radio" name="examination_process" value="Very Good"> Very Good</label>
+                            <label><input type="radio" name="examination_process" value="Good"> Good</label>
+                            <label><input type="radio" name="examination_process" value="Average"> Average</label>
+                            <label><input type="radio" name="examination_process" value="Poor"> Poor</label>
+                            <label><input type="radio" name="examination_process" value="Don't know / Not applicable"> Don't know / Not applicable</label>
+                        </div>
+                    </div>
+
+                    <!-- Rating options for fee structure -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700">Fee structure *</label>
+                        <div class="mt-2 flex flex-wrap gap-3">
+                            <label><input type="radio" name="fee_structure" value="Excellent"> Excellent</label>
+                            <label><input type="radio" name="fee_structure" value="Very Good"> Very Good</label>
+                            <label><input type="radio" name="fee_structure" value="Good"> Good</label>
+                            <label><input type="radio" name="fee_structure" value="Average"> Average</label>
+                            <label><input type="radio" name="fee_structure" value="Poor"> Poor</label>
+                            <label><input type="radio" name="fee_structure" value="Don't know / Not applicable"> Don't know / Not applicable</label>
+                        </div>
+                    </div>
+
+                    <!-- Rating options for satisfaction with results -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700">Your satisfaction regarding result/score of Student *</label>
+                        <div class="mt-2 flex flex-wrap gap-3">
+                            <label><input type="radio" name="result_satisfaction" value="Excellent"> Excellent</label>
+                            <label><input type="radio" name="result_satisfaction" value="Very Good"> Very Good</label>
+                            <label><input type="radio" name="result_satisfaction" value="Good"> Good</label>
+                            <label><input type="radio" name="result_satisfaction" value="Average"> Average</label>
+                            <label><input type="radio" name="result_satisfaction" value="Poor"> Poor</label>
+                            <label><input type="radio" name="result_satisfaction" value="Don't know / Not applicable"> Don't know / Not applicable</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Feedback on Cleanliness -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-5">Feedback on Cleanliness</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">How would you rate the cleanliness of the college premises?</label>
+                            <select name="cleanliness" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Excellent</option>
+                                <option>Good</option>
+                                <option>Average</option>
+                                <option>Poor</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="cleanliness_comments" class="block text-sm font-medium text-gray-700">Additional Comments</label>
+                            <textarea id="cleanliness_comments" name="cleanliness_comments" rows="3" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-300">
+                        Submit Feedback
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
