@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Floating label for filled input */
+    input:focus ~ label,
+    input:not(:placeholder-shown) ~ label {
+      transform: translateY(-1.5rem) scale(0.9);
+      color: #6366F1; /* Tailwind's indigo-500 */
+    }
+  </style>
+</head>
+<body class="bg-zinc-600 flex items-center justify-center h-screen">
+  <div class="w-full max-w-md mx-auto">
+    <div class="bg-white shadow-lg rounded-lg p-8 border border-gray-300">
+      <h2 class="text-2xl font-semibold text-center mb-4 text-gray-700">Admin Login</h2>
+      <form action="/adminLogin" method="post" class="space-y-6">
+        <!-- Username Field -->
+        <div class="relative">
+          <input type="text" name="username" id="username" required
+                 class="w-full px-4 pt-6 pb-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ease-in-out"
+                 placeholder=" " />
+          <label for="username" class="absolute left-4 top-4 text-gray-500 bg-white px-1 transition-all duration-200">
+            Username
+          </label>
+        </div>
+        
+        <!-- Password Field -->
+        <div class="relative">
+          <input type="password" name="password" id="password" required
+                 class="w-full px-4 pt-6 pb-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 ease-in-out"
+                 placeholder=" " />
+          <label for="password" class="absolute left-4 top-4 text-gray-500 bg-white px-1 transition-all duration-200">
+            Password
+          </label>
+        </div>
+        
+        <!-- Login Button -->
+        <button type="submit"
+                class="w-full bg-indigo-600 text-white font-semibold py-2 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-400 transition-all duration-300 ease-in-out">
+          Log In
+        </button>
+      </form>
+      
+      <!-- Loading Animation -->
+      <div id="loading" class="hidden mt-4 text-center">
+        <span class="text-gray-500">Authenticating...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script for Animations -->
+  <script>
+    const form = document.querySelector('form');
+    const loading = document.getElementById('loading');
+    form.addEventListener('submit', function() {
+      loading.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
