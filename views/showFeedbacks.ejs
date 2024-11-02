@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback List</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-blue-300 font-sans">
     <div class="container mx-auto py-10 px-4">
-        <!-- Popup message -->
-        <% if (message) { %>
-            <div id="popup-message" class="bg-green-500 text-white px-4 py-2 rounded mb-4 text-center">
-                <%= message %>
-            </div>
-        <% } %>
         <div class="bg-white p-8 rounded-lg shadow-md min-w-6xl mx-auto">
+            <div>
+                <a href="/adminDashboard" class="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600">Back to Dashboard</a>
+            </div>
             <h1 class="text-3xl font-semibold text-gray-800 mb-6 text-center">Submitted Feedbacks</h1>
             <table class="min-w-full bg-white border border-gray-200">
                 <thead>

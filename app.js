@@ -1,17 +1,36 @@
 const express = require("express");
 const path = require("path");
 const feedback = require("./models/feedback");
-const session = require("express-session");
 const adminModel = require("./models/admin");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
+const cookieParser = require("cookie-parser");
 
 const app = express();
-
+app.use(cookieParser()); // Use cookie-parser middleware
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+
+
+
+// Middleware to check if the user is logged in
+function isLoggedIn(req, res, next) {
+  const token = req.cookies.token;
+
+  if (!token) {
+    return res.redirect("/login");
+  }
+
+  jwt.verify(token, "shhhh", (err, decoded) => {
+    if (err) {
+      return res.redirect("/login");
+    }
+    req.user = decoded; // Attach decoded user information to the request object
+    next();
+  });
+}
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -25,7 +44,7 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/showFeedbacks", (req, res) => {
+app.get("/showFeedbacks",isLoggedIn, (req, res) => {
   const message = req.query.message || ""; // Set default to an empty string if no message is provided
 
   feedback
@@ -39,12 +58,12 @@ app.get("/showFeedbacks", (req, res) => {
     });
 });
 
-app.get("/adminDashboard" , async (req , res) => {
+app.get("/adminDashboard" ,isLoggedIn, async (req , res) => {
   let admins = await adminModel.find();
   res.render("adminDashboard" , {admins});
 })
 
-app.get("/showFeedbacks" , async (req , res) => {
+app.get("/showFeedbacks" ,isLoggedIn, async (req , res) => {
   res.render("showFeedbacks");
 })
 
@@ -156,6 +175,5 @@ app.post("/adminAdd", async (req, res) => {
     });
   });
 });
-
 
 app.listen(3000);
