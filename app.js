@@ -14,8 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 
-
-// Middleware to check if the user is logged in
 function isLoggedIn(req, res, next) {
   const token = req.cookies.token;
 
@@ -175,5 +173,25 @@ app.post("/adminAdd", async (req, res) => {
     });
   });
 });
+
+app.post("/adminDelete/:id", isLoggedIn, async (req, res) => {
+  const adminId = req.params.id;
+
+  try {
+    // Check if there are at least two admins to prevent deleting the last one
+    const adminCount = await adminModel.countDocuments();
+    if (adminCount <= 1) {
+      return res.redirect("/adminDashboard?message=Cannot delete the last admin.");
+    }
+
+    // Delete the admin
+    await adminModel.findByIdAndDelete(adminId);
+    res.redirect("/adminDashboard?message=Admin deleted successfully.");
+  } catch (error) {
+    console.error("Error deleting admin:", error);
+    res.redirect("/adminDashboard?message=Error deleting admin.");
+  }
+});
+
 
 app.listen(3000);
