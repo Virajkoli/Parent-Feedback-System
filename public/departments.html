@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Departments - Government College of Engineering, Jalgaon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f4f6;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #b91c1c;
+        margin-bottom: 20px;
+      }
+
+      .department {
+        background: #ffffff;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+
+      .goals {
+        display: none; /* Initially hidden */
+        margin-top: 10px;
+        background: #f7f7f7;
+        padding: 10px;
+        border-radius: 4px;
+      }
+    </style>
+    <script>
+      function toggleGoals(department) {
+        const goals = document.getElementById(department);
+        if (goals.style.display === "none" || goals.style.display === "") {
+          goals.style.display = "block";
+        } else {
+          goals.style.display = "none";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Departments</h1>
+
+    <div class="department" onclick="toggleGoals('compEngGoals')">
+    <a href="./departments/computer_engineering.html">Computer Engineering</a>      
+    <div id="compEngGoals" class="goals">
+        <h3>Goals & Objectives:</h3>
+        <ul>
+          <li>
+            To provide a strong foundation in computer science and engineering.
+          </li>
+          <li>To prepare students for professional careers in computing.</li>
+          <li>
+            To encourage research and innovation in the field of computer
+            technology.
+          </li>
+          <li>To promote ethical practices and social responsibility.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="department" onclick="toggleGoals('instEngGoals')">
+      <h2>Instrumentation Engineering</h2>
+      <div id="instEngGoals" class="goals">
+        <h3>Goals & Objectives:</h3>
+        <ul>
+          <li>To develop expertise in measurement and control systems.</li>
+          <li>To enhance practical skills in instrumentation technology.</li>
+          <li>
+            To foster research and development in innovative instrumentation
+            solutions.
+          </li>
+          <li>
+            To emphasize the importance of safety and reliability in
+            engineering.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="department" onclick="toggleGoals('civilEngGoals')">
+      <h2>Civil Engineering</h2>
+      <div id="civilEngGoals" class="goals">
+        <h3>Goals & Objectives:</h3>
+        <ul>
+          <li>
+            To equip students with the skills to design and construct
+            infrastructure projects.
+          </li>
+          <li>To promote sustainable engineering practices.</li>
+          <li>To develop leadership qualities in project management.</li>
+          <li>
+            To encourage community engagement and service through engineering
+            projects.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="department" onclick="toggleGoals('mechEngGoals')">
+      <h2>Mechanical Engineering</h2>
+      <div id="mechEngGoals" class="goals">
+        <h3>Goals & Objectives:</h3>
+        <ul>
+          <li>
+            To provide comprehensive knowledge in mechanical systems and design.
+          </li>
+          <li>To promote hands-on experience through labs and projects.</li>
+          <li>To foster innovation and creativity in engineering solutions.</li>
+          <li>
+            To prepare graduates for careers in various sectors of mechanical
+            engineering.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="department" onclick="toggleGoals('elecCommEngGoals')">
+      <h2>Electronics and Telecommunication Engineering</h2>
+      <div id="elecCommEngGoals" class="goals">
+        <h3>Goals & Objectives:</h3>
+        <ul>
+          <li>
+            To develop a strong foundation in electronics and communication
+            systems.
+          </li>
+          <li>
+            To enhance skills in circuit design and telecommunication
+            technologies.
+          </li>
+          <li>
+            To encourage research and development in emerging technologies.
+          </li>
+          <li>
+            To prepare students for diverse career opportunities in electronics.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="department" onclick="toggleGoals('elecEngGoals')">
+      <h2>Electrical Engineering</h2>
+      <div id="elecEngGoals" class="goals">
+        <h3>Goals & Objectives:</h3>
+        <ul>
+          <li>
+            To provide a solid understanding of electrical systems and
+            machinery.
+          </li>
+          <li>To promote innovation in power systems and energy management.</li>
+          <li>
+            To develop problem-solving skills for electrical engineering
+            challenges.
+          </li>
+          <li>
+            To prepare students for careers in both traditional and renewable
+            energy sectors.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

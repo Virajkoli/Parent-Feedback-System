@@ -34,6 +34,14 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/departments", (req, res) => {
+  res.sendFile(path.join(__dirname , "public" , "departments.html"));
+});
+
+app.get("/departments/computer_engineering.html", (req, res) => {
+  res.sendFile(path.join(__dirname , "public" , "computer_engineering.html"));
+});
+
 app.get("/feedback", (req, res) => {
   res.render("feedback");
 });

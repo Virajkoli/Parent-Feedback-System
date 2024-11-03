@@ -1,39 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Website</title>
-    <!-- Tailwind CSS CDN -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IIT JALGAON</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    <!-- Header Section -->
-    <header class="bg-blue-800 text-white py-16 text-center">
-        <h1 class="text-4xl font-bold mb-2">Welcome to [College Name]</h1>
-        <p class="text-xl">Your future starts here</p>
-    </header>
+    <style>
+      /* Set html and body to full height */
+      html,
+      body {
+        height: 100%;
+        margin: 0; /* Remove default margin */
+        background-image: url("https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-2048x1362.jpg"); /* Background image */
+        background-size: cover; /* Cover the entire area */
+        background-position: center; /* Center the image */
+        position: relative; /* For positioning the gradient */
+      }
 
-    <!-- Navigation Bar -->
-    <nav class="bg-gray-900 py-4">
-        <ul class="flex justify-center space-x-8 text-white text-lg">
-            <li><a href="/" class="hover:text-yellow-400">Home</a></li>
-            <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
-            <li><a href="/feedback" class="hover:text-yellow-400">Feedback</a></li>
-            <li><a href="/login" class="hover:text-yellow-400">Admin Login</a></li>
+      /* Dark shadow effect at the top of the page */
+      .shadow-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 250px; /* Height of the shadow */
+        background: linear-gradient(
+          to bottom,
+          rgb(0, 0, 0),
+          transparent
+        ); /* Gradient for shadow effect */
+        z-index: 1; /* Ensure it sits above the background but below other content */
+      }
 
-        </ul>
-    </nav>
+      /* Make navbar fully transparent */
+      .navbar {
+        background-color: transparent; /* Fully transparent */
+        z-index: 2; /* Ensure navbar is above the shadow */
+      }
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white text-center">
-        <h2 class="text-3xl font-semibold text-gray-800 mb-6">About Our College</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare lectus ut lectus pharetra volutpat. Curabitur id tincidunt lorem. Duis non felis enim. Sed tincidunt orci a justo consectetur, non fermentum massa elementum.</p>
-    </section>
+      /* Added styles for better readability */
+      .navbar-text {
+        margin-left: 20px;
+        color: white; /* Change text color to white */
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better visibility */
+        z-index: 1;
+        font-weight: 700; /* Make text a little bolder */
+      }
 
-    <!-- Footer Section -->
-    <footer class="bg-gray-900 text-white text-center py-6">
-        <p>&copy; 2024 [College Name]. All rights reserved.</p>
-    </footer>
-</body>
+      /* Style for information section */
+      .info-container {
+        display: flex;
+        align-items: center; /* Center items vertically */
+        gap: 23px; /* Space between items */
+        margin-left: 8px; /* Margin for left alignment */
+        font-weight: 500;
+      }
+
+      /* Sliding underline effect for navbar links */
+      .nav-link {
+        position: relative;
+        padding-bottom: 2px;
+        /* font-weight: 800; */
+        font-size: larger;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: #d1d5db; /* Gray-300 */
+        transition: width 0.3s ease, left 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-link:hover::after {
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .hover-transition {
+        transition: color 0.3s ease;
+      }
+
+      /* Font style for title */
+      .title-font {
+        font-family: Stanford, "Source Serif Pro", Georgia, Times,
+          "Times New Roman", serif !important; /* Font-family for title */
+      }
+
+      /* Style for hero footer text */
+      .hero-footer {
+        position: absolute;
+        background-color: rgb(170, 0, 0);
+        bottom: 110px;
+        padding: 8px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 20px;
+        color: white;
+        font-weight: 600;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .mission-section {
+        background-color: #ffffff;
+        padding-top: 4rem; /* 16 spacing units */
+        padding-bottom: 4rem;
+        padding-left: 1rem; /* 4 spacing units */
+        padding-right: 1rem;
+        text-align: center;
+      }
+
+      .mission-section h2 {
+        font-size: 1.875rem; /* Tailwind class text-3xl */
+        font-weight: bold;
+        margin-bottom: 2rem; /* 8 spacing units */
+      }
+
+      .mission-section p {
+        font-size: 1.125rem; /* Tailwind class text-lg */
+        line-height: 1.75rem; /* Leading-relaxed */
+        max-width: 48rem; /* Max width to center content */
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem; /* 8 spacing units */
+        color: #4a5568; /* Tailwind text-gray-700 */
+      }
+
+      .mission-section button {
+        background-color: #b91c1c; /* Tailwind bg-red-700 */
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem; /* Tailwind py-3 px-6 */
+        border-radius: 0.375rem; /* Tailwind rounded */
+        transition: background-color 0.3s ease;
+      }
+
+      .mission-section button:hover {
+        background-color: #991b1b; /* Tailwind hover:bg-red-800 */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- Shadow Effect at the Top -->
+    <div class="shadow-top"></div>
+
+    <!-- Top Information Bar -->
+    <div class="navbar text-white p-3 flex justify-between items-center">
+      <p class="font-bold text-lg navbar-text">IIT JALGAON</p>
+      <div class="info-container">
+        <a href="#" class="navbar-text hover:text-gray-300 hover-transition"
+          >Students</a
+        >
+        <a href="#" class="navbar-text hover:text-gray-300 hover-transition"
+          >Faculty & Staff</a
+        >
+        <a href="login" class="navbar-text hover:text-gray-300 hover-transition"
+          >Admin</a
+        >
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="navbar text-white p-4">
+      <nav class="flex justify-center space-x-8">
+        <a
+          href="#"
+          class="nav-link navbar-text hover:text-gray-400 hover-transition"
+          >Events</a
+        >
+        <a
+          href="#"
+          class="nav-link navbar-text hover:text-gray-400 hover-transition"
+          >Administration</a
+        >
+        <a
+          href="#"
+          class="nav-link navbar-text hover:text-gray-400 hover-transition"
+          >Academics</a
+        >
+        <a
+          href="departments"
+          class="nav-link navbar-text hover:text-gray-400 hover-transition"
+          >Departments</a
+        >
+        <a
+          href="#"
+          class="nav-link navbar-text hover:text-gray-400 hover-transition"
+          >Central Facilities</a
+        >
+        <a
+          href="feedback"
+          class="nav-link navbar-text hover:text-gray-400 hover-transition"
+          >Feedback</a
+        >
+        <a
+          href="./nav-pages/about.html"
+          class="nav-link navbar-text hover:text-gray-400 hover-transition"
+          >About</a
+        >
+      </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <div
+      class="hero-section relative flex items-center justify-center text-center text-white"
+      style="height: 100vh"
+    >
+      <h1 class="text-8xl font-bold mb-8 title-font" style="margin-top: -250px">
+        IIT JALGAON
+      </h1>
+      <div class="hero-footer">Explore IIT JALGAON</div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="bg-white p-8 text-center">
+      <h2 class="text-3xl font-bold mb-4">Welcome to IIT JALGAON</h2>
+      <p class="text-gray-700">
+        Discover a world of innovation, learning, and opportunity at IIT
+        Jalgaon. Join us on a journey to excellence in education, research, and
+        community engagement.
+      </p>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="mission-section bg-white py-16 px-4 text-center">
+      <h2 class="text-3xl font-bold mb-8">About IIT JALGAON</h2>
+      <p class="text-lg leading-relaxed max-w-3xl mx-auto mb-8 text-gray-700">
+        The Government College of Engineering was established in 1996. The
+        institute is affiliated to the Kavyitri Bahinabai North Maharashtra
+        University, Jalgaon. Our institution has been NAAC accredited with a
+        CGPA of 2.85 on a 4-point scale at B++ Grade valid for 5 years from
+        21-09-2024. The institute has been granted academic autonomy by the
+        affiliating university and Government of Maharashtra since June 2014.
+      </p>
+      <button
+        class="bg-red-700 text-white font-semibold py-3 px-6 rounded hover:bg-red-800 transition duration-300"
+      >
+        More about IIT JALGAON
+      </button>
+    </div>
+  </body>
 </html>
