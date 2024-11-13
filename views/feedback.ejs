@@ -13,6 +13,11 @@
             background-position: center;
             backdrop-filter: blur(8px);
         }
+
+        .required ::after{
+            content: " *";
+            color: red;
+        }
     </style>
 </head>
 <body class="bg-gray-900 bg-opacity-60 min-h-screen flex items-center justify-center">
@@ -29,19 +34,19 @@
                     <h2 class="text-2xl font-semibold text-gray-700 mb-5">Personal Information</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="student_name" class="block text-sm font-medium text-gray-700">Student Name</label>
+                            <label for="student_name" class="block text-sm font-medium text-gray-700">Student Name <span class="text-red-500">*</span> </label>
                             <input type="text" id="student_name" name="student_name" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-3" required>
                         </div>
                         <div>
-                            <label for="roll_no" class="block text-sm font-medium text-gray-700">Student Roll No</label>
+                            <label for="roll_no" class="block text-sm font-medium text-gray-700">Student Roll No <span class="text-red-500">*</span> </label>
                             <input type="text" id="roll_no" name="roll_no" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-3" required>
                         </div>
                         <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number <span class="text-red-500">*</span> </label>
                             <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-3" required>
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email <span class="text-red-500">*</span> </label>
                             <input type="email" id="email" name="email" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-3" required>
                         </div>
                     </div>
@@ -51,15 +56,15 @@
                     <h2 class="text-2xl font-semibold text-gray-700 mb-5">Parent Information</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="parent_name" class="block text-sm font-medium text-gray-700">Parent Name</label>
+                            <label for="parent_name" class="block text-sm font-medium text-gray-700">Parent Name <span class="text-red-500">*</span> </label>
                             <input type="text" id="parent_name" name="parent_name" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-3" required>
                         </div>
                         <div>
-                            <label for="parent_phone" class="block text-sm font-medium text-gray-700">Parent Phone Number</label>
+                            <label for="parent_phone" class="block text-sm font-medium text-gray-700">Parent Phone Number <span class="text-red-500">*</span> </label>
                             <input type="tel" id="parent_phone" name="parent_phone" pattern="[0-9]{10}" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-3" required>
                         </div>
                         <div>
-                            <label for="parent_email" class="block text-sm font-medium text-gray-700">Parent Email</label>
+                            <label for="parent_email" class="block text-sm font-medium text-gray-700">Parent Email <span class="text-red-500">*</span> </label>
                             <input type="email" id="parent_email" name="parent_email" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-3" required>
                         </div>
                     </div>
@@ -129,7 +134,7 @@
                     <h2 class="text-2xl font-semibold text-gray-700 mb-5">Feedback on Various Aspects</h2>
 
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">Information regarding Student's attendance *</label>
+                        <label class="block text-sm font-medium text-gray-700">Information regarding Student's attendance</label>
                         <div class="mt-2 flex flex-wrap gap-3">
                             <label><input type="radio" name="attendance" value="Excellent"> Excellent</label>
                             <label><input type="radio" name="attendance" value="Very Good"> Very Good</label>
@@ -142,7 +147,7 @@
 
                     <!-- Rating options for Student's performance -->
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">Information regarding Student's performance *</label>
+                        <label class="block text-sm font-medium text-gray-700">Information regarding Student's performance</label>
                         <div class="mt-2 flex flex-wrap gap-3">
                             <label><input type="radio" name="performance" value="Excellent"> Excellent</label>
                             <label><input type="radio" name="performance" value="Very Good"> Very Good</label>
@@ -155,7 +160,7 @@
 
                     <!-- Rating options for interaction with Faculty -->
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">Your interaction with Faculty *</label>
+                        <label class="block text-sm font-medium text-gray-700">Your interaction with Faculty</label>
                         <div class="mt-2 flex flex-wrap gap-3">
                             <label><input type="radio" name="faculty_interaction" value="Excellent"> Excellent</label>
                             <label><input type="radio" name="faculty_interaction" value="Very Good"> Very Good</label>
@@ -168,7 +173,7 @@
 
                     <!-- Rating options for examination process/system -->
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">Examination process/system *</label>
+                        <label class="block text-sm font-medium text-gray-700">Examination process/system</label>
                         <div class="mt-2 flex flex-wrap gap-3">
                             <label><input type="radio" name="examination_process" value="Excellent"> Excellent</label>
                             <label><input type="radio" name="examination_process" value="Very Good"> Very Good</label>
@@ -181,7 +186,7 @@
 
                     <!-- Rating options for fee structure -->
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">Fee structure *</label>
+                        <label class="block text-sm font-medium text-gray-700">Fee structure</label>
                         <div class="mt-2 flex flex-wrap gap-3">
                             <label><input type="radio" name="fee_structure" value="Excellent"> Excellent</label>
                             <label><input type="radio" name="fee_structure" value="Very Good"> Very Good</label>
@@ -194,7 +199,7 @@
 
                     <!-- Rating options for satisfaction with results -->
                     <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">Your satisfaction regarding result/score of Student *</label>
+                        <label class="block text-sm font-medium text-gray-700">Your satisfaction regarding result/score of Student</label>
                         <div class="mt-2 flex flex-wrap gap-3">
                             <label><input type="radio" name="result_satisfaction" value="Excellent"> Excellent</label>
                             <label><input type="radio" name="result_satisfaction" value="Very Good"> Very Good</label>

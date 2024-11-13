@@ -1,246 +1,833 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IIT JALGAON</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* Set html and body to full height */
-      html,
-      body {
-        height: 100%;
-        margin: 0; /* Remove default margin */
-        background-image: url("https://www.stanford.edu/wp-content/uploads/2023/10/Hero-3-2-2048x1362.jpg"); /* Background image */
-        background-size: cover; /* Cover the entire area */
-        background-position: center; /* Center the image */
-        position: relative; /* For positioning the gradient */
-      }
 
-      /* Dark shadow effect at the top of the page */
-      .shadow-top {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 250px; /* Height of the shadow */
-        background: linear-gradient(
-          to bottom,
-          rgb(0, 0, 0),
-          transparent
-        ); /* Gradient for shadow effect */
-        z-index: 1; /* Ensure it sits above the background but below other content */
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GCOEJ - HomePage</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-      /* Make navbar fully transparent */
-      .navbar {
-        background-color: transparent; /* Fully transparent */
-        z-index: 2; /* Ensure navbar is above the shadow */
-      }
+</head>
+<style>
+  * {
+    margin: 0px;
+    padding: 0px;
+}
 
-      /* Added styles for better readability */
-      .navbar-text {
-        margin-left: 20px;
-        color: white; /* Change text color to white */
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better visibility */
-        z-index: 1;
-        font-weight: 700; /* Make text a little bolder */
-      }
+body,
+html {
+    font-family: Roboto, sans-serif, Arial, Helvetica, sans-serif;
+    background: #f0f3fa;
+}
 
-      /* Style for information section */
-      .info-container {
-        display: flex;
-        align-items: center; /* Center items vertically */
-        gap: 23px; /* Space between items */
-        margin-left: 8px; /* Margin for left alignment */
-        font-weight: 500;
-      }
+.width-100 {
+    width: 100%;
+    float: left;
+}
 
-      /* Sliding underline effect for navbar links */
-      .nav-link {
-        position: relative;
-        padding-bottom: 2px;
-        /* font-weight: 800; */
-        font-size: larger;
-      }
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background-color: #d1d5db; /* Gray-300 */
-        transition: width 0.3s ease, left 0.3s ease;
-        transform: translateX(-50%);
-      }
-      .nav-link:hover::after {
-        width: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .hover-transition {
-        transition: color 0.3s ease;
-      }
+.container {
+    width: 1500px;
+    margin: 0px 6px;
+}
 
-      /* Font style for title */
-      .title-font {
-        font-family: Stanford, "Source Serif Pro", Georgia, Times,
-          "Times New Roman", serif !important; /* Font-family for title */
-      }
+.top-header {
+    background: #2196f3;
+    padding: 4px 0px;
+    border-bottom: 3px solid #3131315e;
+}
 
-      /* Style for hero footer text */
-      .hero-footer {
-        position: absolute;
-        background-color: rgb(170, 0, 0);
-        bottom: 110px;
-        padding: 8px;
-        left: 0;
-        right: 0;
-        text-align: center;
-        font-size: 20px;
-        color: white;
-        font-weight: 600;
-        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-      }
+.news-list {
+    background: #fff;
+    color: red;
+    padding: 8px;
+    font-size: 20px;
+}
 
-      .mission-section {
-        background-color: #ffffff;
-        padding-top: 4rem; /* 16 spacing units */
-        padding-bottom: 4rem;
-        padding-left: 1rem; /* 4 spacing units */
-        padding-right: 1rem;
-        text-align: center;
-      }
+.headquote {
+    font-size: 18px;
+    color: #fff;
+    width: 80%;
+}
 
-      .mission-section h2 {
-        font-size: 1.875rem; /* Tailwind class text-3xl */
-        font-weight: bold;
-        margin-bottom: 2rem; /* 8 spacing units */
-      }
+.logo img {
+    height: 80px;
+    width: 80px;
+}
 
-      .mission-section p {
-        font-size: 1.125rem; /* Tailwind class text-lg */
-        line-height: 1.75rem; /* Leading-relaxed */
-        max-width: 48rem; /* Max width to center content */
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 2rem; /* 8 spacing units */
-        color: #4a5568; /* Tailwind text-gray-700 */
-      }
+/* Basic styling */
+.header-menu {
+    background-color: #ffffff;
+    padding: 10px 0;
+  }
+  
+  .main-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .main-menu > li {
+    position: relative;
+    margin-right: 20px;
+  }
+  
+  .main-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+  }
+  
+  /* Dropdown styling */
+  .dropdown {
+    position: absolute;
+    background-color: #ffffff;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    /* Animation settings */
+    max-height: 0; /* Collapsed by default */
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown li a {
+    padding: 0px 10px;
+    color: rgb(0, 0, 0);
+  }
+  
+  /* Smoothly expand and fade in dropdown on hover */
+  .main-menu li:hover > .dropdown {
+    max-height: 650px; /* Large enough to fit all dropdown items */
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-      .mission-section button {
-        background-color: #b91c1c; /* Tailwind bg-red-700 */
-        color: white;
-        font-weight: 600;
-        padding: 0.75rem 1.5rem; /* Tailwind py-3 px-6 */
-        border-radius: 0.375rem; /* Tailwind rounded */
-        transition: background-color 0.3s ease;
-      }
+.header-menu {
+    position: relative;
+    box-shadow: 0px 2px 5px 0px #00000036;
+}
 
-      .mission-section button:hover {
-        background-color: #991b1b; /* Tailwind hover:bg-red-800 */
-      }
-    </style>
-  </head>
-  <body class="bg-gray-100 font-sans">
-    <!-- Shadow Effect at the Top -->
-    <div class="shadow-top"></div>
+.logo {
+    width: fit-content;
+    float: left;
+}
 
-    <!-- Top Information Bar -->
-    <div class="navbar text-white p-3 flex justify-between items-center">
-      <p class="font-bold text-lg navbar-text">IIT JALGAON</p>
-      <div class="info-container">
-        <a href="#" class="navbar-text hover:text-gray-300 hover-transition"
-          >Students</a
-        >
-        <a href="#" class="navbar-text hover:text-gray-300 hover-transition"
-          >Faculty & Staff</a
-        >
-        <a href="login" class="navbar-text hover:text-gray-300 hover-transition"
-          >Admin</a
-        >
+.main-menu {
+    list-style: none;
+    float: right;
+    margin-top: 20px
+}
+
+.main-menu a {
+    font-weight: 500;
+    color: #000000;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.main-menu li {
+    float: left;
+    padding: 12px 15px;
+}
+
+.building img {
+    height: 600px;
+    width: 100%;
+}
+
+.margin-top-5 {
+    margin-top: 50px;
+}
+
+.width-33 {
+    width: 33%;
+    float: left;
+}
+
+.latest-news {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #fff;
+    padding: 20px;
+    height: 350px;
+    margin-bottom: 30px;
+}
+
+.heading-sect {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid gray;
+    padding-bottom: 0px;
+    margin: 0px;
+    margin-bottom: 15px;
+    border: 1px solid gray;
+    padding-top: 15px;
+    padding-left: 15px;
+    background: #00aed9;
+    color: white;
+}
+
+.head-title {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+.latest-news ul {
+    padding: 0px;
+    list-style: none;
+    line-height: 40px;
+}
+
+.event-list {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #fff;
+    padding: 20px;
+    height: 350px;
+    margin-bottom: 30px;
+}
+
+.heading-sect {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 0px;
+    margin: 0px;
+    margin-bottom: 15px;
+    padding-top: 2px;
+    border: 1px solid #cfcfcf;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 15px;
+    background: #00aed9;
+    color: white;
+}
+
+.head-title {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif !important;
+    color: #ffffff;
+    padding-bottom: 5px;
+}
+
+.upcoming-event-list {
+    padding: 0px;
+    list-style: none;
+}
+
+.upcoming-event-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+}
+
+.event-date {
+    background: #03a9f4;
+    width: 30px;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+.notice-board {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #fff;
+    padding: 20px;
+    height: 350px;
+    margin-bottom: 30px;
+}
+
+.heading-sect {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 0px;
+    margin: 0px;
+    margin-bottom: 15px;
+    padding-top: 2px;
+    border: 1px solid #cfcfcf;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 15px;
+    background: #00aed9;
+    color: white;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+
+.notice-board-list {
+    padding: 0px;
+    list-style: none;
+}
+
+.notice-board-list li {
+    margin-bottom: 15px;
+}
+
+.our-principal {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #fff;
+    padding: 20px;
+    height: 350px;
+    margin-bottom: 30px;
+}
+
+.heading-sect {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 0px;
+    margin: 0px;
+    margin-bottom: 15px;
+    padding-top: 2px;
+    border: 1px solid #cfcfcf;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 15px;
+    background: #00aed9;
+    color: white;
+}
+
+.useful-info-ul {
+    list-style: none;
+}
+
+.useful-info-ul li {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #d7d7d7;
+    padding-bottom: 15px;
+}
+
+.useful-info-ul a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.about-us {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #fff;
+    padding: 20px;
+    height: 350px;
+    margin-bottom: 30px;
+}
+
+.about-us img {
+    height: 100px;
+    width: 100px;
+}
+
+.gove-sec-style {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #d7d7d7;
+    padding-bottom: 30px;
+}
+
+.width-40 {
+    width: 40%;
+    float: left;
+}
+
+.width-60 {
+    width: 60%;
+    float: left;
+}
+
+.governor-name {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.governor-designation {
+    font-size: 15px;
+    color: black;
+    padding-left: 10px;
+    margin-top: 6px;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.gallery-head-style {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 10px;
+    border: 1px solid #cfcfcf;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 15px;
+    border: none;
+    padding: 2px 0px;
+}
+
+.width-25 {
+    width: 25%;
+    float: left;
+}
+
+.yuvarang-img {
+    width: 380px;
+    height: 250px;
+}
+
+.sing-img {
+    height: 250px;
+    width: 100%;
+}
+
+.gallery-img {
+    height: 250px;
+    width: 100%;
+}
+
+.recruiter-head-style {
+    font-size: 28px;
+    height: 30px;
+    color: black;
+}
+
+.recruiter-marquee {
+    height: 100px;
+    margin-top: 20px;
+}
+
+.recruiter-marquee img {
+    height: 80px;
+    width: 140px;
+}
+
+.footer {
+    background: #232F3E;
+    padding: 50px 0px;
+}
+
+.quicklink-menu {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.quicklink-heading {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.quicklink-menu li a {
+    color: #fff;
+    line-height: 2.5;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.get-in-touch {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.get-in-touch li {
+    color: #fff;
+    line-height: 2.5;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.get-in-touch li i {
+    color: #ed372c;
+    font-size: 20px;
+}
+
+.social-media {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.social-media li {
+    float: left;
+    padding: 0px 8px;
+}
+
+.fa-headphones:before {
+    content: "\f025";
+}
+
+.fa-envelope-o:before {
+    content: "\f003";
+}
+
+.fa-fax:before {
+    content: "\f1ac";
+}
+
+.fa-globe:before {
+    content: "\f0ac";
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px / 1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.footer-website {
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-e-mail {
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer2-bacbor {
+    background: #232F3E;
+    padding: 10px 0px;
+    border-top: 1px solid #898989;
+}
+
+.footer2-content {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+}
+
+.footer2-content a {
+    font-size: 20px;
+    text-decoration: none;
+    color: skyblue;
+}
+</style>
+<body>
+  <div class="width-100 top-header">
+    <div class="container">
+      <div class="width-100">
+        <b class="news-list">News:</b>
+        <marquee class="headquote">GCOEJ : Globally Accepted Engineers with Human Skills</marquee>
       </div>
     </div>
+  </div>
 
-    <!-- Main Navigation Bar -->
-    <div class="navbar text-white p-4">
-      <nav class="flex justify-center space-x-8">
-        <a
-          href="#"
-          class="nav-link navbar-text hover:text-gray-400 hover-transition"
-          >Events</a
-        >
-        <a
-          href="#"
-          class="nav-link navbar-text hover:text-gray-400 hover-transition"
-          >Administration</a
-        >
-        <a
-          href="#"
-          class="nav-link navbar-text hover:text-gray-400 hover-transition"
-          >Academics</a
-        >
-        <a
-          href="departments"
-          class="nav-link navbar-text hover:text-gray-400 hover-transition"
-          >Departments</a
-        >
-        <a
-          href="#"
-          class="nav-link navbar-text hover:text-gray-400 hover-transition"
-          >Central Facilities</a
-        >
-        <a
-          href="feedback"
-          class="nav-link navbar-text hover:text-gray-400 hover-transition"
-          >Feedback</a
-        >
-        <a
-          href="./nav-pages/about.html"
-          class="nav-link navbar-text hover:text-gray-400 hover-transition"
-          >About</a
-        >
-      </nav>
-    </div>
+  <div class="width-100 header-menu">
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo.png" alt="">
+      </div>
 
-    <!-- Hero Section -->
-    <div
-      class="hero-section relative flex items-center justify-center text-center text-white"
-      style="height: 100vh"
-    >
-      <h1 class="text-8xl font-bold mb-8 title-font" style="margin-top: -250px">
-        IIT JALGAON
-      </h1>
-      <div class="hero-footer">Explore IIT JALGAON</div>
+      <ul class="main-menu">
+        <li><a href="#">About us</a>
+          <ul class="dropdown">
+            <li><a href="#">About GCOEJ</a></li>
+            <li><a href="#">Mission & Vision</a></li>
+            <li><a href="#">Infrastucture</a></li>
+            <li><a href="#">Future Planning</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Administration</a>
+          <ul class="dropdown">
+            <li><a href="login">Admin Login</a></li>
+            <li><a href="#">Board of Society</a></li>
+            <li><a href="#">Principal/Director</a></li>
+            <li><a href="#">Examination Committee</a></li>
+            <li><a href="#">Finance Committee</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Academics</a>
+          <ul class="dropdown">
+            <li><a href="#">Programs</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Admission</a></li>
+            <li><a href="#">Fees Structure</a></li>
+            <li><a href="#">Syllabus</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Departments</a>
+          <ul class="dropdown">
+            <li><a href="#">Computer Engineering</a></li>
+            <li><a href="#">Mechanical Engineering</a></li>
+            <li><a href="#">Civil Engineering</a></li>
+            <li><a href="#">Instrumentation Engineering</a></li>
+            <li><a href="#">Electrical Engineering</a></li>
+            <li><a href="#">E&Tc Engineering</a></li>
+            <li><a href="#">Science & Humanities</a></li>
+            <li><a href="#">Workshop</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Central Facilities</a>
+          <ul class="dropdown">
+            <li><a href="#">Central Library</a></li>
+            <li><a href="#">Computer Center</a></li>
+            <li><a href="#">Data Center</a></li>
+            <li><a href="#">Gymkhana</a></li>
+            <li><a href="#">Hostel</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Students Corner</a>
+          <ul class="dropdown">
+            <li><a href="#">Placement</a></li>
+            <li><a href="#">T&P Cell</a></li>
+            <li><a href="#">Alumni</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <!-- Content Section -->
-    <div class="bg-white p-8 text-center">
-      <h2 class="text-3xl font-bold mb-4">Welcome to IIT JALGAON</h2>
-      <p class="text-gray-700">
-        Discover a world of innovation, learning, and opportunity at IIT
-        Jalgaon. Join us on a journey to excellence in education, research, and
-        community engagement.
-      </p>
-    </div>
+  <div class="width-100 building">
+    <img src="images/building.jpg" alt="" class="slider-width">
+  </div>
 
-    <!-- Mission Section -->
-    <div class="mission-section bg-white py-16 px-4 text-center">
-      <h2 class="text-3xl font-bold mb-8">About IIT JALGAON</h2>
-      <p class="text-lg leading-relaxed max-w-3xl mx-auto mb-8 text-gray-700">
-        The Government College of Engineering was established in 1996. The
-        institute is affiliated to the Kavyitri Bahinabai North Maharashtra
-        University, Jalgaon. Our institution has been NAAC accredited with a
-        CGPA of 2.85 on a 4-point scale at B++ Grade valid for 5 years from
-        21-09-2024. The institute has been granted academic autonomy by the
-        affiliating university and Government of Maharashtra since June 2014.
-      </p>
-      <button
-        class="bg-red-700 text-white font-semibold py-3 px-6 rounded hover:bg-red-800 transition duration-300"
-      >
-        More about IIT JALGAON
-      </button>
+  <div class="width-100 margin-top-5">
+    <div class="container">
+      <div class="width-33">
+        <div class="latest-news">
+          <div class="heading-sect">
+            <h3 class="head-title">Latest News</h3>
+          </div>
+          <marquee behavior="" direction="up">
+            <ul>
+              <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. <img src="images/latest-news-blink-img.gif"
+                  alt=""></li>
+              <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.<img src="images/latest-news-blink-img.gif"
+                  alt=""></li>
+              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.<img src="images/latest-news-blink-img.gif"
+                  alt=""></li>
+              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.<img src="images/latest-news-blink-img.gif"
+                  alt=""></li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.<img src="images/latest-news-blink-img.gif"
+                  alt=""></li>
+              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.<img src="images/latest-news-blink-img.gif"
+                  alt=""></li>
+            </ul>
+          </marquee>
+        </div>
+      </div>
+
+      <div class="width-33">
+        <div class="event-list">
+          <div class="heading-sect">
+            <h3 class="head-title">Upcoming Events</h3>
+          </div>
+          <ul class="upcoming-event-list">
+            <li><span class="event-date">29 <br>
+                Nov</span><span> Lorem ipsum dolor sit amet consectetur.</span> </li>
+            <li><span class="event-date">30 <br>
+                Nov</span><span> Lorem ipsum dolor sit amet consectetur.</span> </li>
+            <li><span class="event-date">2 <br>
+                Dec</span><span> Lorem ipsum dolor sit amet consectetur.</span> </li>
+            <li><span class="event-date">5 <br>
+                Dec</span><span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ex incidunt impedit perspiciatis eveniet autem, deserunt dicta ullam.</span> </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="width-33">
+        <div class="notice-board">
+          <div class="heading-sect">
+            <h3 class="head-title">Notice Board</h3>
+          </div>
+          <ul class="notice-board-list">
+            <li><img src="images/notice-board-img.png"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus ipsa obcaecati aperiam. </li>
+            <li><img src="images/notice-board-img.png"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </li>
+            <li><img src="images/notice-board-img.png"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci. </li>
+            <li><img src="images/notice-board-img.png"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut? </li>
+            <li><img src="images/notice-board-img.png"> Lorem ipsum dolor sit amet consectetur adipisicing.
+            </li>
+            <li><img src="images/notice-board-img.png"> Lorem ipsum dolor sit amet. </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </body>
+  </div>
+
+  <div class="width-100">
+    <div class="container">
+
+      <div class="width-33">
+        <div class="our-principal">
+          <div class="heading-sect">
+            <h3 class="head-title"> Useful Information</h3>
+          </div>
+          <ul class="useful-info-ul">
+            <li><img src="images/info-list-img1.png"> <a href="#">Online Service</a></li>
+            <li><img src="images/info-list-img2.png"> <a href="#">Online Results</a></li>
+            <li><img src="images/info-list-img3.png"> <a href="#">Exam Time Table</a></li>
+            <li><img src="images/info-list-img4.png"> <a href="#">Tenders</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="width-33">
+        <div class="about-us">
+          <div class="heading-sect">
+            <h3 class="head-title"> About Us</h3>
+          </div>
+          <div class="width-100 gove-sec-style">
+            <div class="width-40">
+              <img class="governor-img" src="images/principal_secreatary.jpeg">
+            </div>
+            <div class="width-60">
+              <p class="governor-name">Shri. V. C. Rastogi</p>
+              <p class="governor-designation">Hon. Principal Secretary, Higher & Technical Education, Maharashtra State
+              </p>
+            </div>
+          </div>
+          <div class="width-40">
+            <img class="governor-img" src="images/principal.jpeg">
+          </div>
+          <div class="width-60">
+            <p class="governor-name">Dr. Suhas S. Gajre</p>
+            <p class="governor-designation">Hon. Principal, GCoE, Jalgaon</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- <div class="width-33">
+          <div class="certificate">
+            <div class="heading-sect">
+              <h3 class="head-title"> My College Certificate</h3>
+            </div>
+            <img src="images/my-certificate.jpg" class="width-100"> </div>
+        </div> -->
+
+    </div>
+  </div>
+
+  <div class="width-100 margin-top-50">
+    <div class="container">
+      <h3 class="gallery-head-style">Gallery </h3>
+      <div class="width-25"><img src="images/gallery-1.jpg" class="yuvarang-img"></div>
+      <div class="width-25"><img src="images/gallery-2.jpg" class="gallery-img"></div>
+      <div class="width-25"><img src="images/gallery-3.jpg" class="sing-img"></div>
+      <div class="width-25"><img src="images/gallery-4.jpg" class="gallery-img"></div>
+      <div class="width-25"><img src="images/gallery-5.jpg" class="gallery-img"></div>
+      <div class="width-25"><img src="images/gallery-6.jpg" class="gallery-img"></div>
+      <div class="width-25"><img src="images/gallery-7.jpg" class="gallery-img"></div>
+      <div class="width-25"><img src="images/gallery-8.jpg" class="gallery-img"></div>
+    </div>
+  </div>
+
+  <div class="width-100 margin-top-50">
+    <div class="container">
+      <h3 class="recruiter-head-style">Top Recruiters Company</h3>
+      <marquee class="recruiter-marquee">
+        <img src="images/rec/recruiter-1.jpg">
+        <img src="images/rec/recruiter-2.jpg">
+        <img src="images/rec/recruiter-3.jpg">
+        <img src="images/rec/recruiter-4.jpg">
+        <img src="images/rec/recruiter-5.jpg">
+        <img src="images/rec/recruiter-6.jpg">
+        <img src="images/rec/recruiter-7.jpg">
+        <img src="images/rec/recruiter-8.jpg">
+        <img src="images/rec/recruiter-9.jpg">
+        <img src="images/rec/recruiter-10.jpg">
+        <img src="images/rec/recruiter-11.jpg">
+        <img src="images/rec/recruiter-12.jpg">
+        <img src="images/rec/recruiter-13.jpg">
+        <img src="images/rec/recruiter-14.jpg">
+        <img src="images/rec/recruiter-15.jpg">
+        <img src="images/rec/recruiter-16.jpg">
+        <img src="images/rec/recruiter-17.jpg">
+      </marquee>
+    </div>
+  </div>
+
+  <div class="width-100 margin-top-50 footer">
+    <div class="container">
+      <div class="width-25">
+        <h2 class="quicklink-heading">Quick Links</h2>
+        <ul class="quicklink-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="width-25">
+        <h2 class="quicklink-heading">Student Section</h2>
+        <ul class="quicklink-menu">
+          <li><a href="#">Result</a></li>
+          <li><a href="#">Pay Fee</a></li>
+          <li><a href="#">Training</a></li>
+          <li><a href="#">Placements</a></li>
+        </ul>
+      </div>
+      <div class="width-25">
+        <h2 class="quicklink-heading">Information Link</h2>
+        <ul class="quicklink-menu">
+          <li><a href="#">News</a></li>
+          <li><a href="#">R&D Policy</a></li>
+          <li><a href="#">Anti-Ragging</a></li>
+          <li><a href="#">Addmission</a></li>
+        </ul>
+      </div>
+      <div class="width-25">
+        <h2 class="quicklink-heading">GET IN TOUCH</h2>
+        <ul class="get-in-touch">
+          <li><i class="fa fa-envelope-o" aria-hidden="true"></i> E-MAIL:<a href="#" class="footer-e-mail">
+              gcoej@gcoej.ac.in</a></li>
+          <li><i class="fa fa-headphones" aria-hidden="true"></i> WHATS-APP: +91 -123 456 789</li>
+          <li><i class="fa fa-fax" aria-hidden="true"></i> CONTACT NO.: +91 -(123)-4567890</li>
+          <li><i class="fa fa-globe" aria-hidden="true"></i> WEBSITE:<a href="https://www.gcoej.ac.in/site/" class="footer-website">
+            https://www.gcoej.ac.in/site/</a></li>
+        </ul>
+        <ul class="social-media">
+          <li><a href="#"><img src="images/icon-facebook.png"></a></li>
+          <li><a href="#"><img src="images/icon-twitter.png"></a></li>
+          <li><a href="https://www.linkedin.com/school/gcoejalgaon/"><img src="images/icon-linkedin.png"></a></li>
+          <li><a href="https://www.instagram.com/src_gcoej?igsh=MXFzcXU5ejV3aGZtag=="><img
+                src="images/icon-instagram.png"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="width-100 footer2-bacbor">
+    <p class="footer2-content">Copyright @ 2024, Viraj Koli. All Rights Reserved <br>
+      <a
+        href="https://www.linkedin.com/in/viraj-koli-a65637255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">linkedin</a>
+    </p>
+  </div>
+
+</body>
 </html>

@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken")
 const cookieParser = require("cookie-parser");
 
 const app = express();
-app.use(cookieParser()); // Use cookie-parser middleware
+app.use(cookieParser()); // To Use cookie-parser middleware
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,7 +25,7 @@ function isLoggedIn(req, res, next) {
     if (err) {
       return res.redirect("/login");
     }
-    req.user = decoded; // Attach decoded user information to the request object
+    req.user = decoded;
     next();
   });
 }
