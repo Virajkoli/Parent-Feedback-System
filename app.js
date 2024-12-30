@@ -3,7 +3,7 @@ const path = require("path");
 const feedback = require("./models/feedback");
 const adminModel = require("./models/admin");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 
 const app = express();
@@ -12,7 +12,6 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
-
 
 function isLoggedIn(req, res, next) {
   const token = req.cookies.token;
@@ -34,12 +33,16 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/departments", (req, res) => {
-  res.sendFile(path.join(__dirname , "public" , "departments.html"));
+app.get("/public/departments.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "departments.html"));
 });
 
-app.get("/departments/computer_engineering.html", (req, res) => {
-  res.sendFile(path.join(__dirname , "public" , "computer_engineering.html"));
+app.get("/public/computer_engineering.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "computer_engineering.html"));
+});
+
+app.get("/public/about.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "about.html"));
 });
 
 app.get("/feedback", (req, res) => {
@@ -50,7 +53,7 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/showFeedbacks",isLoggedIn, (req, res) => {
+app.get("/showFeedbacks", isLoggedIn, (req, res) => {
   const message = req.query.message || ""; // Set default to an empty string if no message is provided
 
   feedback
@@ -64,19 +67,19 @@ app.get("/showFeedbacks",isLoggedIn, (req, res) => {
     });
 });
 
-app.get("/adminDashboard" ,isLoggedIn, async (req , res) => {
+app.get("/adminDashboard", isLoggedIn, async (req, res) => {
   let admins = await adminModel.find();
-  res.render("adminDashboard" , {admins});
-})
+  res.render("adminDashboard", { admins });
+});
 
-app.get("/showFeedbacks" ,isLoggedIn, async (req , res) => {
+app.get("/showFeedbacks", isLoggedIn, async (req, res) => {
   res.render("showFeedbacks");
-})
+});
 
-app.get("/logout" , (req , res) => {
-  res.cookie("token" , "");
-  res.redirect("login")
-})
+app.get("/logout", (req, res) => {
+  res.cookie("token", "");
+  res.redirect("login");
+});
 
 app.post("/feedback", async (req, res) => {
   const feedbackData = new feedback({
@@ -177,7 +180,7 @@ app.post("/adminAdd", async (req, res) => {
 
       let token = jwt.sign({ username: username, adminid: admin._id }, "shhhh");
       res.cookie("token", token);
-      res.redirect("/adminDashboard")
+      res.redirect("/adminDashboard");
     });
   });
 });
@@ -189,7 +192,9 @@ app.post("/adminDelete/:id", isLoggedIn, async (req, res) => {
     // Check if there are at least two admins to prevent deleting the last one
     const adminCount = await adminModel.countDocuments();
     if (adminCount <= 1) {
-      return res.redirect("/adminDashboard?message=Cannot delete the last admin.");
+      return res.redirect(
+        "/adminDashboard?message=Cannot delete the last admin."
+      );
     }
 
     // Delete the admin
@@ -201,5 +206,4 @@ app.post("/adminDelete/:id", isLoggedIn, async (req, res) => {
   }
 });
 
-
-app.listen(3000);
+app.listen(5000);
